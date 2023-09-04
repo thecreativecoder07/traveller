@@ -1,5 +1,6 @@
 
   @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 
 body
 {
@@ -71,10 +72,14 @@ body
     transform: rotate(180deg);
 
 }
+nav ul
+{
+    float: right;
+}
 nav ul li
 {
     display: inline-block;
-    padding: 22px 55px;
+    padding: 22px 35px;
 }
 nav ul li a{
     text-decoration: none;
@@ -116,6 +121,174 @@ nav ul li a:hover
     color: white;
 }
 
+/* welcome section css */
+.welcome-cls h1{
+    font-size: 60px;
+    font-family: 'fjalla one';
+    color:#30345fdb;
+
+}
+
+/* about us css */
+.trip-img
+{    
+    box-shadow: 0px 2px 8px #848484;
+}
+.text-cls
+{
+    margin-top: 12%;
+    background: #e2e7e9;
+    padding: 55px 70px;
+    box-shadow: 0px 2px 8px #848484;
+}
+.text-cls span{
+    font-family: 'Quicksand', sans-serif;
+    letter-spacing: 4px;
+    
+}
+.text-cls h1{
+    font-size: 60px;
+    font-family: 'Fjalla One', sans-serif;
+    color: #30345fdb;
+}
+.img-trip-cls.hidden
+{
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: ease-in-out 0.9s;
+}
+.img-trip-cls.active
+{
+    opacity: 1;
+    transform: translateX(0px);
+}
+.text-cls.hidden
+{
+    opacity: 0;
+    transform: translateX(50px);
+    transition: ease-in-out 0.9s;
+}
+.text-cls.active
+{
+    opacity: 1;
+    transform: translateX(0px);
+}
+
+
+/* services css */
+.service-cls h1
+{
+    font-size: 60px;
+    font-family: 'Fjalla One', sans-serif;
+    color: #30345fdb;
+    text-align: center;
+}
+.card.hidden
+{
+    opacity: 0;
+    transform: translateY(50px);
+    filter: blur(5px);
+    transition: ease-in-out 0.9s;
+}
+.card.active
+{
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateY(0);
+}
+.card .icon>i
+{
+    font-size: 55px;
+    color: #4d5176;    
+    transition: 0.7s;
+}
+.card-title
+{
+    font-size: 25px;
+    font-family: 'Quicksand';
+    color: #4d5176;
+}
+.card:hover .icon>i
+{
+    background: #4d5176;
+    color: white;
+    padding: 5px;
+    font-size: 45px;
+}
+.card:hover
+{    
+    box-shadow: 0px 2px 8px #848484;
+}
+
+/* feedback section css */
+.travel-blog h1, .feedback-display h2
+{
+    
+    text-align: center;    
+    font-size: 60px;
+    font-family: 'Fjalla One', sans-serif;
+    color: #30345fdb;
+
+}
+.feedback-section {
+    background-color: #6a779e;
+    padding: 30px;
+    margin: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.feedback-section h2
+{
+    /* text-align: center; */
+    font-size: 25px;
+    font-family: 'Quicksand';
+    color: #ffff;
+}
+
+.feedback-card {
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px auto;
+    width: 254px;
+    height: 300px;
+    box-shadow: 0px 0px 9px 2px #dbdbdb;
+}
+.feedback-card h3{
+    font-family: 'Quicksand';
+    color: darkgray;
+    /* font-weight: 800; */
+    letter-spacing: 3px;
+    text-align: center;
+    font-size: 30px;
+    border-bottom: 1px solid;
+}
+
+/* footer css */
+.footer {
+    background-color: #cbcbcb;
+    /* color: white; */
+    padding: 20px 0;
+}
+.footer h3{
+    font-size: 30px;
+    color: #30345fdb;
+    font-family: 'Fjalla One', sans-serif;
+}
+.social-icons {
+    font-size: 24px;
+    margin-right: 10px;
+    color: #4d5176;
+    transition: 0.5s;
+}
+.social-icons:hover
+{
+    /* font-size: 27px; */
+    color: white;
+    background-color: #30345fdb;
+    padding: 0px 5px;
+}
+
 /* resposive */
 @media (min-aspect-ratio: 16/9)
 {
@@ -123,11 +296,8 @@ nav ul li a:hover
     {
         display: none;
     }
-    .plan-trip
-    {
-        /* position: absolute; */
-        /* top: 95%; */
-        
+    .card{
+        width: 18rem;
     }
 }
 
@@ -179,5 +349,28 @@ nav ul li a:hover
         font-size: 15px;
         color: #3c3c3c;
     }
+    .trip-img
+    {
+        width: 100%;
+    }
+    .card
+    {
+        width: 100%;
+    }
 }
 
+#scrollToTopBtn
+{
+    position: fixed;
+    right: 0;
+    bottom: 20px;
+    background: #494e73;
+    color: white;
+    font-size: 22px;
+}
+.modal-title{
+    font-size: 25px;
+    font-family: 'Fjalla One', sans-serif;
+    color: #30345fdb;
+    text-align: center;
+}
