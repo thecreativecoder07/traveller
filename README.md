@@ -1,2 +1,2 @@
 # traveller
-Creating a responsive website for travel page niche.
+Creating a responsive website for travel theme.
