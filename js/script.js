@@ -10,10 +10,22 @@ function closeNav()
 
 }
 // form validation
+function validateDestination()
+{
+    let destination = document.forms["myForm"]["destination"].value;
+    if(destination == "")
+    {
+        document.getElementById("destinationError").innerText = "Please Select A Valid Destination";
+    }
+    else
+    {
+        document.getElementById("destinationError").innerText = "";
+    }
+}
 function validateLocation()
 {
-    var location = document.forms["myForm"]["location"].value;
-    var regLoc = /^[A-Za-z]+$/;
+    let location = document.forms["myForm"]["location"].value;
+    let regLoc = /^[A-Za-z]+$/;
 
     if (!regLoc.test(location))
     {
@@ -30,7 +42,7 @@ function validateLocation()
 }
 function validatePhone()
 {
-    var phone = document.forms["myForm"]["phone"].value;
+    let phone = document.forms["myForm"]["phone"].value;
     
     if(isNaN(phone))
     {
@@ -47,8 +59,8 @@ function validatePhone()
 }
 function validatePeople()
 {
-    var numofpeople = document.forms["myForm"]["numofpeople"].value;
-    var regPeople = /^([1-9]|[1-9][0-9]|100)$/;  //range of number from 1 - 100
+    let numofpeople = document.forms["myForm"]["numofpeople"].value;
+    let regPeople = /^([1-9]|[1-9][0-9]|100)$/;  //range of number from 1 - 100
 
     if(!regPeople.test(numofpeople))
     {
@@ -64,17 +76,20 @@ function validateForm()
     validateLocation();
     validatePhone();
     validatePeople();
+    validateDestination();
 
-    var locationErr = document.getElementById("locationError").innerText;
-    var phoneErr = document.getElementById("phoneError").innerText;
-    var numofpeopleErr = document.getElementById("numofpeopleError").innerText;
+    let locationErr = document.getElementById("locationError").innerText;
+    let phoneErr = document.getElementById("phoneError").innerText;
+    let numofpeopleErr = document.getElementById("numofpeopleError").innerText;    
+    let destinationErr = document.getElementById("destinationError").innerText;
 
-    if(locationErr || phoneErr || numofpeopleErr)
+    if(locationErr || phoneErr || numofpeopleErr || destinationErr)
     {
         return false;
     }
     else
     {
+        alert('Thankyou For Choosing Us. Will Get Back To You ASAP');
         return true;
     }
 
@@ -144,3 +159,81 @@ $(".owl-carousel").owlCarousel({
     }
 });
 
+
+// form validation of feedback form
+function validateFname()
+{
+    let name = document.forms["feedbackForm"]["fname"].value;
+    let regEx = /^[A-Za-z]+$/;
+
+    if (!regEx.test(name))
+    {
+        document.getElementById("feedNameErr").innerText = "Please Enter Valid Name";
+
+    }
+    else
+    {
+        document.getElementById("feedNameErr").innerText = "";        
+
+    }
+}
+function validatetext()
+{
+    let text = document.forms["feedbackForm"]["ftext"].value;
+    let regEx = /^[A-Za-z]+$/;
+
+    if (!regEx.test(text))
+    {
+        document.getElementById("feedTextErr").innerText = "Please Enter Valid Message";
+
+    }
+    else
+    {
+        document.getElementById("feedTextErr").innerText = "";        
+
+    }
+}
+function validateFfile()
+{
+    let feedbackFile = document.getElementById("ffile");
+    let allowedExtensions = /\.(jpeg|jpg|png)$/i;
+    let fileSize = 100 * 1024; // 100KB
+    let selectedFile = feedbackFile.files[0];
+
+    
+    if(allowedExtensions.test(feedbackFile))
+    {
+        document.getElementById("feedFileErr").innerText = "Please Choose png, jpg or jpeg File";
+    }
+    else if(selectedFile.size > fileSize)
+    {
+        document.getElementById("feedFileErr").innerText = "File is too big select under 100kb";
+    }
+    else
+    {
+        document.getElementById("feedFileErr").innerText = "";
+    }
+}
+function valFeedbackForm()
+{
+    validateFname();
+    validatetext();
+    validateFfile();
+
+    let nameErr = document.getElementById("feedNameErr").innerText;
+    let textErr = document.getElementById("feedTextErr").innerText;
+    let fileErr = document.getElementById("feedFileErr").innerText;
+
+    if(nameErr || textErr || fileErr)
+    {
+        return false;
+    }
+    else
+    {
+        
+        alert('Message Sent successfully');
+        return true;
+    }
+
+
+}
